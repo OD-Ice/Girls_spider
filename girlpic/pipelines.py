@@ -46,6 +46,7 @@ class GirlsImagesPipeline(ImagesPipeline):
         # opath是原来的路径
         opath = super().file_path(request, response, info)
         image_name = opath.replace('full/', '')
+        # 必须通过request获取meta，而不是response
         path = os.path.join(request.meta['item']['title'], image_name)
         print(path)
         if not os.path.exists(path):

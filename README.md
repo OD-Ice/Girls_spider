@@ -2,23 +2,14 @@
 
 ## 项目简介
 
-一个初学者的简单练习...
+利用scrapy框架实现girlsky.cn首页妹子图中所有图片深度爬取。
 
-利用scrapy框架实现girlsky.cn首页妹子图中所有图片下载。
+利用`ImagesPipeline`实现异步图片下载，图片实现自动分类。
 
-利用`ImagesPipeline`实现异步图片下载。
+## 使用
 
-修改下载路径，检测文件是否存在，避免重复下载：
+确保在scrapy环境中运行。
 
-```python
-def file_path(self, request, response=None, info=None):
-    # opath是原来的路径
-    opath = super().file_path(request, response, info)
-    image_name = opath.replace('full/', '')
-    path = os.path.join(request.meta['item']['title'], image_name)
-    print(path)
-    if not os.path.exists(path):
-        return path
-```
+运行`start_spider.py`。
 
 图片下载到同路径`images`文件夹中。

@@ -7,7 +7,7 @@ from girlpic.items import GirlpicItem
 class GirlsSpider(CrawlSpider):
     name = 'girls'
     allowed_domains = ['girlsky.cn']
-    start_urls = ['http://www.girlsky.cn']
+    start_urls = ['https://www.girlsky.cn']
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths='/html/body/div[3]/div[3]/ul/li/a'),
